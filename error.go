@@ -8,31 +8,37 @@ import (
 type ErrCode int32
 
 const (
+	//all
+	ErrCode_NoQueryCondition ErrCode = 1001
+
 	//member
-	ErrCode_AccountRegistered      ErrCode = 1001
-	ErrCode_AccountNotRegistered   ErrCode = 1002
-	ErrCode_PhoneRegistered        ErrCode = 1003
-	ErrCode_PhoneNotRegistered     ErrCode = 1010
-	ErrCode_MailRegistered         ErrCode = 1012
-	ErrCode_MailNotRegistered      ErrCode = 1011
-	ErrCode_PasswordFormatMismatch ErrCode = 1004
-	ErrCode_PasswordMismatch       ErrCode = 1005
-	ErrCode_InvalidCountry         ErrCode = 1013
-	ErrCode_PhoneVerifiedMismatch  ErrCode = 1007
-	ErrCode_MailVerifiedMismatch   ErrCode = 1009
+	ErrCode_AccountRegistered      ErrCode = 2001
+	ErrCode_AccountNotRegistered   ErrCode = 2002
+	ErrCode_PhoneRegistered        ErrCode = 2003
+	ErrCode_PhoneNotRegistered     ErrCode = 2004
+	ErrCode_MailRegistered         ErrCode = 2005
+	ErrCode_MailNotRegistered      ErrCode = 2006
+	ErrCode_PasswordFormatMismatch ErrCode = 2007
+	ErrCode_PasswordMismatch       ErrCode = 2008
+	ErrCode_InvalidCountry         ErrCode = 2009
+	ErrCode_PhoneVerifiedMismatch  ErrCode = 2010
+	ErrCode_MailVerifiedMismatch   ErrCode = 2011
 )
 
 var (
+	//all
+	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
+
 	//member
 	ErrAccountRegistered      = status.Error(codes.Code(ErrCode_AccountRegistered), "account registered")
 	ErrAccountNotRegistered   = status.Error(codes.Code(ErrCode_AccountNotRegistered), "account not registered")
 	ErrPhoneRegistered        = status.Error(codes.Code(ErrCode_PhoneRegistered), "phone number registered")
+	ErrPhoneNotRegistered     = status.Error(codes.Code(ErrCode_PhoneNotRegistered), "phone number not registered")
+	ErrMailRegistered         = status.Error(codes.Code(ErrCode_MailRegistered), "mail registered")
+	ErrMailNotRegistered      = status.Error(codes.Code(ErrCode_MailNotRegistered), "mail not registered")
 	ErrPasswordFormatMismatch = status.Error(codes.Code(ErrCode_PasswordFormatMismatch), "password format mismatch")
 	ErrPasswordMismatch       = status.Error(codes.Code(ErrCode_PasswordMismatch), "password mismatch")
+	ErrInvalidCountry         = status.Error(codes.Code(ErrCode_InvalidCountry), "invalid country")
 	ErrPhoneVerifiedMismatch  = status.Error(codes.Code(ErrCode_PhoneVerifiedMismatch), "phone verified mismatch")
 	ErrMailVerifiedMismatch   = status.Error(codes.Code(ErrCode_MailVerifiedMismatch), "mail verified mismatch")
-	ErrPhoneNotRegistered     = status.Error(codes.Code(ErrCode_PhoneNotRegistered), "phone number not registered")
-	ErrMailNotRegistered      = status.Error(codes.Code(ErrCode_MailNotRegistered), "mail not registered")
-	ErrMailRegistered         = status.Error(codes.Code(ErrCode_MailRegistered), "mail registered")
-	ErrInvalidCountry         = status.Error(codes.Code(ErrCode_InvalidCountry), "invalid country")
 )
