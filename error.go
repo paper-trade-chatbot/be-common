@@ -10,6 +10,9 @@ type ErrCode int32
 const (
 	//all
 	ErrCode_NoQueryCondition ErrCode = 1001
+	ErrCode_NotImplemented   ErrCode = 1002
+	ErrCode_Unknown          ErrCode = 1003
+	ErrCode_Internal         ErrCode = 1004
 
 	//member
 	ErrCode_AccountRegistered      ErrCode = 2001
@@ -28,6 +31,7 @@ const (
 var (
 	//all
 	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
+	ErrNotImplemented   = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
 
 	//member
 	ErrAccountRegistered      = status.Error(codes.Code(ErrCode_AccountRegistered), "account registered")
