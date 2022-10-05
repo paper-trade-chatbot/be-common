@@ -14,24 +14,36 @@ const (
 	ErrCode_Unknown          ErrCode = 1003
 	ErrCode_Internal         ErrCode = 1004
 
+	//api
+	ErrCode_APIRequestTooMany ErrCode = 2001
+	ErrCode_NoRequiredParam   ErrCode = 2002
+
 	//member
-	ErrCode_AccountRegistered      ErrCode = 2001
-	ErrCode_AccountNotRegistered   ErrCode = 2002
-	ErrCode_PhoneRegistered        ErrCode = 2003
-	ErrCode_PhoneNotRegistered     ErrCode = 2004
-	ErrCode_MailRegistered         ErrCode = 2005
-	ErrCode_MailNotRegistered      ErrCode = 2006
-	ErrCode_PasswordFormatMismatch ErrCode = 2007
-	ErrCode_PasswordMismatch       ErrCode = 2008
-	ErrCode_InvalidCountry         ErrCode = 2009
-	ErrCode_PhoneVerifiedMismatch  ErrCode = 2010
-	ErrCode_MailVerifiedMismatch   ErrCode = 2011
+	ErrCode_AccountRegistered      ErrCode = 3001
+	ErrCode_AccountNotRegistered   ErrCode = 3002
+	ErrCode_PhoneRegistered        ErrCode = 3003
+	ErrCode_PhoneNotRegistered     ErrCode = 3004
+	ErrCode_MailRegistered         ErrCode = 3005
+	ErrCode_MailNotRegistered      ErrCode = 3006
+	ErrCode_PasswordFormatMismatch ErrCode = 3007
+	ErrCode_PasswordMismatch       ErrCode = 3008
+	ErrCode_InvalidCountry         ErrCode = 3009
+	ErrCode_PhoneVerifiedMismatch  ErrCode = 3010
+	ErrCode_MailVerifiedMismatch   ErrCode = 3011
+	ErrCode_WrongAccountFormat     ErrCode = 3012
+	ErrCode_WrongPasswordFormat    ErrCode = 3013
+	ErrCode_WrongMailFormat        ErrCode = 3014
+	ErrCode_WrongPhoneFormat       ErrCode = 3015
 )
 
 var (
 	//all
 	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
 	ErrNotImplemented   = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
+
+	//api
+	ErrAPIRequestTooMany = status.Error(codes.Code(ErrCode_APIRequestTooMany), "api request too many")
+	ErrNoRequiredParam   = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
 
 	//member
 	ErrAccountRegistered      = status.Error(codes.Code(ErrCode_AccountRegistered), "account registered")
@@ -45,4 +57,8 @@ var (
 	ErrInvalidCountry         = status.Error(codes.Code(ErrCode_InvalidCountry), "invalid country")
 	ErrPhoneVerifiedMismatch  = status.Error(codes.Code(ErrCode_PhoneVerifiedMismatch), "phone verified mismatch")
 	ErrMailVerifiedMismatch   = status.Error(codes.Code(ErrCode_MailVerifiedMismatch), "mail verified mismatch")
+	ErrWrongAccountFormat     = status.Error(codes.Code(ErrCode_WrongAccountFormat), "wrong account format")
+	ErrWrongPasswordFormat    = status.Error(codes.Code(ErrCode_WrongPasswordFormat), "wrong password format")
+	ErrWrongMailFormat        = status.Error(codes.Code(ErrCode_WrongMailFormat), "wrong mail format")
+	ErrWrongPhoneFormat       = status.Error(codes.Code(ErrCode_WrongPhoneFormat), "wrong phone format")
 )
