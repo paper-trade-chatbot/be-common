@@ -34,6 +34,11 @@ const (
 	ErrCode_WrongPasswordFormat    ErrCode = 3013
 	ErrCode_WrongMailFormat        ErrCode = 3014
 	ErrCode_WrongPhoneFormat       ErrCode = 3015
+
+	//auth
+	ErrCode_TokenExpired   ErrCode = 4001
+	ErrCode_MemberDisabled ErrCode = 4002
+	ErrCode_MemberDerived  ErrCode = 4003
 )
 
 var (
@@ -61,4 +66,9 @@ var (
 	ErrWrongPasswordFormat    = status.Error(codes.Code(ErrCode_WrongPasswordFormat), "wrong password format")
 	ErrWrongMailFormat        = status.Error(codes.Code(ErrCode_WrongMailFormat), "wrong mail format")
 	ErrWrongPhoneFormat       = status.Error(codes.Code(ErrCode_WrongPhoneFormat), "wrong phone format")
+
+	//auth
+	ErrTokenExpired   = status.Error(codes.Code(ErrCode_TokenExpired), "token expired")
+	ErrMemberDisabled = status.Error(codes.Code(ErrCode_MemberDisabled), "member disabled")
+	ErrMemberDerived  = status.Error(codes.Code(ErrCode_MemberDerived), "member derived")
 )
