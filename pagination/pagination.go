@@ -34,3 +34,9 @@ func SetPaginationDto(page int32, pageSize int32, count int32, index int32) *gen
 		TotalRows:    count,
 	}
 }
+
+func GetOffsetAndLimit(pagination *general.Pagination) (offset int, limit int) {
+	offset = int((pagination.Page - 1) * pagination.PageSize)
+	limit = int(pagination.PageSize)
+	return
+}
