@@ -17,6 +17,7 @@ const (
 	//api
 	ErrCode_APIRequestTooMany ErrCode = 2001
 	ErrCode_NoRequiredParam   ErrCode = 2002
+	ErrCode_InvalidParam      ErrCode = 2003
 
 	//member
 	ErrCode_AccountRegistered      ErrCode = 3001
@@ -49,6 +50,7 @@ var (
 	//api
 	ErrAPIRequestTooMany = status.Error(codes.Code(ErrCode_APIRequestTooMany), "api request too many")
 	ErrNoRequiredParam   = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
+	ErrInvalidParam      = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
 
 	//member
 	ErrAccountRegistered      = status.Error(codes.Code(ErrCode_AccountRegistered), "account registered")
