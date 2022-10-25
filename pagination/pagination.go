@@ -71,16 +71,16 @@ func GetOffsetAndLimit(pagination *general.Pagination) (offset int, limit int) {
 	return
 }
 
-func IteratePage[Request HasPagination, Response HasPaginationInfo](pageSize int32, req Request, iterateFunc func(Request) (Response, error)) ([]Response, error) {
+// IteratePage
+//
+//
+//
+func IteratePage[Request HasPagination, Response HasPaginationInfo](req Request, iterateFunc func(Request) (Response, error)) ([]Response, error) {
 
 	responses := []Response{}
+	var nextPagination *general.Pagination
 
-	pagination := NewPagination(pageSize)
-	req.GetPagination().Page = pagination.Page
-	req.GetPagination().PageSize = pagination.PageSize
-	var paginationInfo *general.PaginationInfo
-
-	for ok := true; ok; ok = (NextPagination(paginationInfo) != nil) {
+	for ok := true; ok; ok = (nextPagination != nil) {
 
 		res, err := iterateFunc(req)
 		if err != nil {
@@ -90,11 +90,9 @@ func IteratePage[Request HasPagination, Response HasPaginationInfo](pageSize int
 
 		responses = append(responses, res)
 
-		paginationInfo = res.GetPaginationInfo()
-
-		nextPagination := NextPagination(res.GetPaginationInfo())
-		pagination.Page = nextPagination.Page
-		pagination.PageSize = nextPagination.PageSize
+		nextPagination = NextPagination(res.GetPaginationInfo())
+		req.GetPagination().Page = nextPagination.Page
+		req.GetPagination().PageSize = nextPagination.PageSize
 	}
 
 	return responses, nil
