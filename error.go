@@ -40,6 +40,9 @@ const (
 	ErrCode_TokenExpired   ErrCode = 4001
 	ErrCode_MemberDisabled ErrCode = 4002
 	ErrCode_MemberDerived  ErrCode = 4003
+
+	//candle
+	ErrCode_NoSuchProduct ErrCode = 5001
 )
 
 var (
@@ -73,4 +76,7 @@ var (
 	ErrTokenExpired   = status.Error(codes.Code(ErrCode_TokenExpired), "token expired")
 	ErrMemberDisabled = status.Error(codes.Code(ErrCode_MemberDisabled), "member disabled")
 	ErrMemberDerived  = status.Error(codes.Code(ErrCode_MemberDerived), "member derived")
+
+	//candle
+	ErrNoSuchProduct = status.Error(codes.Code(ErrCode_NoSuchProduct), "no such product")
 )
