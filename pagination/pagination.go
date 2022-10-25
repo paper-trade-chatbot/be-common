@@ -1,8 +1,19 @@
 package pagination
 
 import (
+	"errors"
+	"fmt"
+
 	"github.com/paper-trade-chatbot/be-proto/general"
 )
+
+type HasPagination interface {
+	GetPagination() *general.Pagination
+}
+
+type HasPaginationInfo interface {
+	GetPaginationInfo() *general.PaginationInfo
+}
 
 func NewPagination(pageSize int32) *general.Pagination {
 	return &general.Pagination{
@@ -11,15 +22,15 @@ func NewPagination(pageSize int32) *general.Pagination {
 	}
 }
 
-func NextPagination(paginationInfo *general.PaginationInfo) *general.Pagination {
+func NextPagination(pInfo *general.PaginationInfo) *general.Pagination {
 
-	if paginationInfo.GetCurrentPage() >= paginationInfo.GetTotalPages() {
+	if pInfo == nil || pInfo.GetCurrentPage() >= pInfo.GetTotalPages() {
 		return nil
 	}
 
 	return &general.Pagination{
-		Page:     paginationInfo.GetNextPage(),
-		PageSize: paginationInfo.GetPageSize(),
+		Page:     pInfo.GetNextPage(),
+		PageSize: pInfo.GetPageSize(),
 	}
 }
 
@@ -58,4 +69,33 @@ func GetOffsetAndLimit(pagination *general.Pagination) (offset int, limit int) {
 	offset = int((pagination.Page - 1) * pagination.PageSize)
 	limit = int(pagination.PageSize)
 	return
+}
+
+func IteratePage[Request HasPagination, Response HasPaginationInfo](pageSize int32, req Request, iterateFunc func(Request) (Response, error)) ([]Response, error) {
+
+	responses := []Response{}
+
+	pagination := NewPagination(pageSize)
+	req.GetPagination().Page = pagination.Page
+	req.GetPagination().PageSize = pagination.PageSize
+	var paginationInfo *general.PaginationInfo
+
+	for ok := true; ok; ok = (NextPagination(paginationInfo) != nil) {
+
+		res, err := iterateFunc(req)
+		if err != nil {
+			nestedErr := errors.New(fmt.Sprintf("IteratePage page(%d) err: %v", req.GetPagination().Page, err))
+			return nil, nestedErr
+		}
+
+		responses = append(responses, res)
+
+		paginationInfo = res.GetPaginationInfo()
+
+		nextPagination := NextPagination(res.GetPaginationInfo())
+		pagination.Page = nextPagination.Page
+		pagination.PageSize = nextPagination.PageSize
+	}
+
+	return responses, nil
 }
