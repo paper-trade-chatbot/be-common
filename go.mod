@@ -3,7 +3,7 @@ module github.com/paper-trade-chatbot/be-common
 go 1.18
 
 require (
-	github.com/paper-trade-chatbot/be-proto v0.0.0-20221005025241-710a52819754
+	github.com/paper-trade-chatbot/be-proto v0.0.0-20221025021312-82c83aac3ba6
 	google.golang.org/grpc v1.49.0
 )
 

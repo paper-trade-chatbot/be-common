@@ -4,6 +4,25 @@ import (
 	"github.com/paper-trade-chatbot/be-proto/general"
 )
 
+func NewPagination(pageSize int32) *general.Pagination {
+	return &general.Pagination{
+		Page:     1,
+		PageSize: pageSize,
+	}
+}
+
+func NextPagination(paginationInfo *general.PaginationInfo) *general.Pagination {
+
+	if paginationInfo.GetCurrentPage() >= paginationInfo.GetTotalPages() {
+		return nil
+	}
+
+	return &general.Pagination{
+		Page:     paginationInfo.GetNextPage(),
+		PageSize: paginationInfo.GetPageSize(),
+	}
+}
+
 //SetPaginationDto set pagination dto
 func SetPaginationDto(page int32, pageSize int32, count int32, index int32) *general.PaginationInfo {
 
