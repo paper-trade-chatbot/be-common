@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func Marshal[T struct{}](ctx context.Context, s *T, fieldTag string, seperator string) string {
+func Marshal[T any](ctx context.Context, s *T, fieldTag string, seperator string) string {
 	key := ""
 
 	v := reflect.ValueOf(s)
