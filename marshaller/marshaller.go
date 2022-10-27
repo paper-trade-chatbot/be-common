@@ -1,12 +1,13 @@
 package marshaller
 
 import (
+	"context"
 	"encoding/json"
 	"reflect"
 	"time"
 )
 
-func Marshal[T struct{}](s *T, fieldTag string, seperator string) string {
+func Marshal[T struct{}](ctx context.Context, s *T, fieldTag string, seperator string) string {
 	key := ""
 
 	v := reflect.ValueOf(s)
