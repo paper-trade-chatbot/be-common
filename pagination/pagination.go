@@ -75,7 +75,7 @@ func GetOffsetAndLimit(pagination *general.Pagination) (offset int, limit int) {
 //
 //
 //
-func IteratePage[Request HasPagination, Response HasPaginationInfo](req Request, iterateFunc func(Request) (Response, error)) ([]Response, error) {
+func IteratePageGRPC[Request HasPagination, Response HasPaginationInfo](req Request, iterateFunc func(Request) (Response, error)) ([]Response, error) {
 
 	responses := []Response{}
 	var nextPagination *general.Pagination
@@ -93,6 +93,26 @@ func IteratePage[Request HasPagination, Response HasPaginationInfo](req Request,
 		nextPagination = NextPagination(res.GetPaginationInfo())
 		req.GetPagination().Page = nextPagination.Page
 		req.GetPagination().PageSize = nextPagination.PageSize
+	}
+
+	return responses, nil
+}
+
+func IteratePage[model interface{}](newPage *general.Pagination, iterateFunc func(*general.Pagination) ([]*model, *general.PaginationInfo, error)) ([]*model, error) {
+
+	responses := []*model{}
+
+	for ok := true; ok; ok = (newPage != nil) {
+
+		models, paginationInfo, err := iterateFunc(newPage)
+		if err != nil {
+			nestedErr := errors.New(fmt.Sprintf("IteratePage page(%d) err: %v", newPage.Page, err))
+			return nil, nestedErr
+		}
+
+		responses = append(responses, models...)
+
+		newPage = NextPagination(paginationInfo)
 	}
 
 	return responses, nil
