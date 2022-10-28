@@ -13,11 +13,11 @@ const (
 	ErrCode_NotImplemented   ErrCode = 1002
 	ErrCode_Unknown          ErrCode = 1003
 	ErrCode_Internal         ErrCode = 1004
+	ErrCode_NoRequiredParam  ErrCode = 1005
+	ErrCode_InvalidParam     ErrCode = 1006
 
 	//api
 	ErrCode_APIRequestTooMany ErrCode = 2001
-	ErrCode_NoRequiredParam   ErrCode = 2002
-	ErrCode_InvalidParam      ErrCode = 2003
 
 	//member
 	ErrCode_AccountRegistered      ErrCode = 3001
@@ -43,17 +43,19 @@ const (
 
 	//candle
 	ErrCode_NoSuchProduct ErrCode = 5001
+
+	//quote
 )
 
 var (
 	//all
 	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
 	ErrNotImplemented   = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
+	ErrNoRequiredParam  = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
+	ErrInvalidParam     = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
 
 	//api
 	ErrAPIRequestTooMany = status.Error(codes.Code(ErrCode_APIRequestTooMany), "api request too many")
-	ErrNoRequiredParam   = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
-	ErrInvalidParam      = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
 
 	//member
 	ErrAccountRegistered      = status.Error(codes.Code(ErrCode_AccountRegistered), "account registered")

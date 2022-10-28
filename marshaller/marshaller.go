@@ -22,9 +22,6 @@ func Marshal[T any](ctx context.Context, s *T, fieldTag string, seperator string
 		if !ok {
 			continue
 		}
-		if v.Elem().Field(i).IsNil() {
-			continue
-		}
 
 		value := v.Elem().Field(i).Interface()
 
