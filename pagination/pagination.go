@@ -80,8 +80,7 @@ func IteratePageGRPC[Request HasPagination, Response HasPaginationInfo](req Requ
 	responses := []Response{}
 	var nextPagination *general.Pagination
 
-	for ok := true; ok; ok = (nextPagination != nil) {
-
+	for {
 		res, err := iterateFunc(req)
 		if err != nil {
 			nestedErr := errors.New(fmt.Sprintf("IteratePage page(%d) err: %v", req.GetPagination().Page, err))
@@ -91,6 +90,9 @@ func IteratePageGRPC[Request HasPagination, Response HasPaginationInfo](req Requ
 		responses = append(responses, res)
 
 		nextPagination = NextPagination(res.GetPaginationInfo())
+		if nextPagination == nil {
+			break
+		}
 		req.GetPagination().Page = nextPagination.Page
 		req.GetPagination().PageSize = nextPagination.PageSize
 	}
