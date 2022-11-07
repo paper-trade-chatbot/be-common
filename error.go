@@ -41,8 +41,10 @@ const (
 	ErrCode_MemberDisabled ErrCode = 4002
 	ErrCode_MemberDerived  ErrCode = 4003
 
+	//product
+
 	//candle
-	ErrCode_NoSuchProduct ErrCode = 5001
+	ErrCode_NoSuchProduct ErrCode = 6001
 
 	//quote
 )
