@@ -51,6 +51,8 @@ const (
 	//wallet
 	ErrCode_UpdateWalletInterrupted ErrCode = 8001
 	ErrCode_NoSuchWallet            ErrCode = 8002
+	ErrCode_NoSuchTransactionRecord ErrCode = 8003
+	ErrCode_TransactionNotSuccess   ErrCode = 8004
 )
 
 var (
@@ -95,4 +97,6 @@ var (
 	//wallet
 	ErrUpdateWalletInterrupted = status.Error(codes.Code(ErrCode_UpdateWalletInterrupted), "interrupted when updating wallet")
 	ErrNoSuchWallet            = status.Error(codes.Code(ErrCode_NoSuchWallet), "no such wallet")
+	ErrNoSuchTransactionRecord = status.Error(codes.Code(ErrCode_NoSuchTransactionRecord), "no transaction record")
+	ErrTransactionNotSuccess   = status.Error(codes.Code(ErrCode_TransactionNotSuccess), "this transaction is not successful")
 )
