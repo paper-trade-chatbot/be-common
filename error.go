@@ -47,6 +47,10 @@ const (
 	ErrCode_NoSuchProduct ErrCode = 6001
 
 	//quote
+
+	//wallet
+	ErrCode_FailToTransaction ErrCode = 8001
+	ErrCode_NoSuchWallet      ErrCode = 8002
 )
 
 var (
@@ -81,6 +85,14 @@ var (
 	ErrMemberDisabled = status.Error(codes.Code(ErrCode_MemberDisabled), "member disabled")
 	ErrMemberDerived  = status.Error(codes.Code(ErrCode_MemberDerived), "member derived")
 
+	//product
+
 	//candle
 	ErrNoSuchProduct = status.Error(codes.Code(ErrCode_NoSuchProduct), "no such product")
+
+	//quote
+
+	//wallet
+	ErrFailToTransaction = status.Error(codes.Code(ErrCode_FailToTransaction), "failed to transaction")
+	ErrNoSuchWallet      = status.Error(codes.Code(ErrCode_NoSuchWallet), "no such wallet")
 )
