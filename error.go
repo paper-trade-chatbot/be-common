@@ -49,8 +49,8 @@ const (
 	//quote
 
 	//wallet
-	ErrCode_FailToTransaction ErrCode = 8001
-	ErrCode_NoSuchWallet      ErrCode = 8002
+	ErrCode_UpdateWalletInterrupted ErrCode = 8001
+	ErrCode_NoSuchWallet            ErrCode = 8002
 )
 
 var (
@@ -93,6 +93,6 @@ var (
 	//quote
 
 	//wallet
-	ErrFailToTransaction = status.Error(codes.Code(ErrCode_FailToTransaction), "failed to transaction")
-	ErrNoSuchWallet      = status.Error(codes.Code(ErrCode_NoSuchWallet), "no such wallet")
+	ErrUpdateWalletInterrupted = status.Error(codes.Code(ErrCode_UpdateWalletInterrupted), "interrupted when updating wallet")
+	ErrNoSuchWallet            = status.Error(codes.Code(ErrCode_NoSuchWallet), "no such wallet")
 )
