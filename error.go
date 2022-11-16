@@ -54,6 +54,7 @@ const (
 	ErrCode_NoSuchTransactionRecord ErrCode = 8003
 	ErrCode_TransactionNotSuccess   ErrCode = 8004
 	ErrCode_NoSuchMember            ErrCode = 8005
+	ErrCode_InsufficientBalance     ErrCode = 8006
 )
 
 var (
@@ -101,4 +102,5 @@ var (
 	ErrNoSuchTransactionRecord = status.Error(codes.Code(ErrCode_NoSuchTransactionRecord), "no transaction record")
 	ErrTransactionNotSuccess   = status.Error(codes.Code(ErrCode_TransactionNotSuccess), "this transaction is not successful")
 	ErrNoSuchMember            = status.Error(codes.Code(ErrCode_NoSuchMember), "no such member")
+	ErrInsufficientBalance     = status.Error(codes.Code(ErrCode_InsufficientBalance), "insufficient balance")
 )
