@@ -43,9 +43,9 @@ const (
 	ErrCode_MemberDerived  ErrCode = 4003
 
 	//product
+	ErrCode_NoSuchProduct ErrCode = 5001
 
 	//candle
-	ErrCode_NoSuchProduct ErrCode = 6001
 
 	//quote
 
@@ -56,12 +56,19 @@ const (
 	ErrCode_TransactionNotSuccess   ErrCode = 8004
 	ErrCode_NoSuchMember            ErrCode = 8005
 	ErrCode_InsufficientBalance     ErrCode = 8006
+
+	//order
+	ErrCode_NoSuchOrder ErrCode = 10001
+
+	//position
 )
 
 var (
 	//all
 	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
 	ErrNotImplemented   = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
+	ErrUnknown          = status.Error(codes.Code(ErrCode_Unknown), "unknown error")
+	ErrInternal         = status.Error(codes.Code(ErrCode_Internal), "internal error")
 	ErrNoRequiredParam  = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
 	ErrInvalidParam     = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
 	ErrNoPermission     = status.Error(codes.Code(ErrCode_NoPermission), "no permission")
@@ -92,9 +99,9 @@ var (
 	ErrMemberDerived  = status.Error(codes.Code(ErrCode_MemberDerived), "member derived")
 
 	//product
+	ErrNoSuchProduct = status.Error(codes.Code(ErrCode_NoSuchProduct), "no such product")
 
 	//candle
-	ErrNoSuchProduct = status.Error(codes.Code(ErrCode_NoSuchProduct), "no such product")
 
 	//quote
 
@@ -105,4 +112,9 @@ var (
 	ErrTransactionNotSuccess   = status.Error(codes.Code(ErrCode_TransactionNotSuccess), "this transaction is not successful")
 	ErrNoSuchMember            = status.Error(codes.Code(ErrCode_NoSuchMember), "no such member")
 	ErrInsufficientBalance     = status.Error(codes.Code(ErrCode_InsufficientBalance), "insufficient balance")
+
+	//order
+	ErrNoSuchOrder = status.Error(codes.Code(ErrCode_NoSuchOrder), "no such order")
+
+	//position
 )
