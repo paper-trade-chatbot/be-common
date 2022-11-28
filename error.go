@@ -58,7 +58,8 @@ const (
 	ErrCode_InsufficientBalance     ErrCode = 8006
 
 	//order
-	ErrCode_NoSuchOrder ErrCode = 10001
+	ErrCode_NoSuchOrder     ErrCode = 10001
+	ErrCode_OrderNotPending ErrCode = 10002
 
 	//position
 )
@@ -114,7 +115,8 @@ var (
 	ErrInsufficientBalance     = status.Error(codes.Code(ErrCode_InsufficientBalance), "insufficient balance")
 
 	//order
-	ErrNoSuchOrder = status.Error(codes.Code(ErrCode_NoSuchOrder), "no such order")
+	ErrNoSuchOrder     = status.Error(codes.Code(ErrCode_NoSuchOrder), "no such order")
+	ErrOrderNotPending = status.Error(codes.Code(ErrCode_OrderNotPending), "order not pending")
 
 	//position
 )
