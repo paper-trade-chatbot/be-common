@@ -62,6 +62,7 @@ const (
 	ErrCode_OrderNotPending ErrCode = 10002
 
 	//position
+	ErrCode_InvalidCloseAmount ErrCode = 11001
 )
 
 var (
@@ -119,4 +120,5 @@ var (
 	ErrOrderNotPending = status.Error(codes.Code(ErrCode_OrderNotPending), "order not pending")
 
 	//position
+	ErrInvalidCloseAmount = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
 )
