@@ -63,8 +63,10 @@ const (
 	ErrCode_OrderNotPending ErrCode = 10002
 
 	//position
-	ErrCode_InvalidCloseAmount ErrCode = 11001
-	ErrCode_NoSuchPosition     ErrCode = 11002
+	ErrCode_InvalidCloseAmount     ErrCode = 11001
+	ErrCode_NoSuchPosition         ErrCode = 11002
+	ErrCode_ProcessStateNotOpen    ErrCode = 11003
+	ErrCode_ProcessStateNotPending ErrCode = 11004
 )
 
 var (
@@ -123,6 +125,8 @@ var (
 	ErrOrderNotPending = status.Error(codes.Code(ErrCode_OrderNotPending), "order not pending")
 
 	//position
-	ErrInvalidCloseAmount = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
-	ErrNoSuchPosition     = status.Error(codes.Code(ErrCode_NoSuchPosition), "no such position")
+	ErrInvalidCloseAmount     = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
+	ErrNoSuchPosition         = status.Error(codes.Code(ErrCode_NoSuchPosition), "no such position")
+	ErrProcessStateNotOpen    = status.Error(codes.Code(ErrCode_ProcessStateNotOpen), "process state is not open")
+	ErrProcessStateNotPending = status.Error(codes.Code(ErrCode_ProcessStateNotPending), "process state is not pending")
 )
