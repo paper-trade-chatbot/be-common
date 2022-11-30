@@ -63,6 +63,7 @@ const (
 
 	//position
 	ErrCode_InvalidCloseAmount ErrCode = 11001
+	ErrCode_NoSuchPosition     ErrCode = 11002
 )
 
 var (
@@ -121,4 +122,5 @@ var (
 
 	//position
 	ErrInvalidCloseAmount = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
+	ErrNoSuchPosition     = status.Error(codes.Code(ErrCode_NoSuchPosition), "no such position")
 )
