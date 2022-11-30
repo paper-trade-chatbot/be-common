@@ -16,6 +16,7 @@ const (
 	ErrCode_NoRequiredParam  ErrCode = 1005
 	ErrCode_InvalidParam     ErrCode = 1006
 	ErrCode_NoPermission     ErrCode = 1007
+	ErrCode_ExceedRetryTimes ErrCode = 1008
 
 	//api
 	ErrCode_APIRequestTooMany ErrCode = 2001
@@ -75,6 +76,7 @@ var (
 	ErrNoRequiredParam  = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
 	ErrInvalidParam     = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
 	ErrNoPermission     = status.Error(codes.Code(ErrCode_NoPermission), "no permission")
+	ErrExceedRetryTimes = status.Error(codes.Code(ErrCode_ExceedRetryTimes), "exceed retry times")
 
 	//api
 	ErrAPIRequestTooMany = status.Error(codes.Code(ErrCode_APIRequestTooMany), "api request too many")
