@@ -59,14 +59,15 @@ const (
 	ErrCode_InsufficientBalance     ErrCode = 8006
 
 	//order
-	ErrCode_NoSuchOrder     ErrCode = 10001
-	ErrCode_OrderNotPending ErrCode = 10002
+	ErrCode_NoSuchOrder     ErrCode = 9001
+	ErrCode_OrderNotPending ErrCode = 9002
 
 	//position
-	ErrCode_InvalidCloseAmount     ErrCode = 11001
-	ErrCode_NoSuchPosition         ErrCode = 11002
-	ErrCode_ProcessStateNotOpen    ErrCode = 11003
-	ErrCode_ProcessStateNotPending ErrCode = 11004
+	ErrCode_InvalidCloseAmount        ErrCode = 10001
+	ErrCode_NoSuchPosition            ErrCode = 10002
+	ErrCode_ProcessStateNotOpen       ErrCode = 10003
+	ErrCode_ProcessStateNotPending    ErrCode = 10004
+	ErrCode_PositionNotBelongToMember ErrCode = 10005
 )
 
 var (
@@ -125,8 +126,9 @@ var (
 	ErrOrderNotPending = status.Error(codes.Code(ErrCode_OrderNotPending), "order not pending")
 
 	//position
-	ErrInvalidCloseAmount     = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
-	ErrNoSuchPosition         = status.Error(codes.Code(ErrCode_NoSuchPosition), "no such position")
-	ErrProcessStateNotOpen    = status.Error(codes.Code(ErrCode_ProcessStateNotOpen), "process state is not open")
-	ErrProcessStateNotPending = status.Error(codes.Code(ErrCode_ProcessStateNotPending), "process state is not pending")
+	ErrInvalidCloseAmount        = status.Error(codes.Code(ErrCode_InvalidCloseAmount), "invalid close amount")
+	ErrNoSuchPosition            = status.Error(codes.Code(ErrCode_NoSuchPosition), "no such position")
+	ErrProcessStateNotOpen       = status.Error(codes.Code(ErrCode_ProcessStateNotOpen), "process state is not open")
+	ErrProcessStateNotPending    = status.Error(codes.Code(ErrCode_ProcessStateNotPending), "process state is not pending")
+	ErrPositionNotBelongToMember = status.Error(codes.Code(ErrCode_PositionNotBelongToMember), "position not belong to this member")
 )
