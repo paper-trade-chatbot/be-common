@@ -5,18 +5,19 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-type ErrCode int32
+type ErrCode uint32
 
 const (
 	//all
-	ErrCode_NoQueryCondition ErrCode = 1001
-	ErrCode_NotImplemented   ErrCode = 1002
-	ErrCode_Unknown          ErrCode = 1003
-	ErrCode_Internal         ErrCode = 1004
-	ErrCode_NoRequiredParam  ErrCode = 1005
-	ErrCode_InvalidParam     ErrCode = 1006
-	ErrCode_NoPermission     ErrCode = 1007
-	ErrCode_ExceedRetryTimes ErrCode = 1008
+	ErrCode_NoQueryCondition   ErrCode = 1001
+	ErrCode_NotImplemented     ErrCode = 1002
+	ErrCode_Unknown            ErrCode = 1003
+	ErrCode_Internal           ErrCode = 1004
+	ErrCode_NoRequiredParam    ErrCode = 1005
+	ErrCode_InvalidParam       ErrCode = 1006
+	ErrCode_NoPermission       ErrCode = 1007
+	ErrCode_ExceedRetryTimes   ErrCode = 1008
+	ErrCode_UnablePushRabbitmq ErrCode = 1009
 
 	//api
 	ErrCode_APIRequestTooMany ErrCode = 2001
@@ -72,14 +73,15 @@ const (
 
 var (
 	//all
-	ErrNoQueryCondition = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
-	ErrNotImplemented   = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
-	ErrUnknown          = status.Error(codes.Code(ErrCode_Unknown), "unknown error")
-	ErrInternal         = status.Error(codes.Code(ErrCode_Internal), "internal error")
-	ErrNoRequiredParam  = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
-	ErrInvalidParam     = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
-	ErrNoPermission     = status.Error(codes.Code(ErrCode_NoPermission), "no permission")
-	ErrExceedRetryTimes = status.Error(codes.Code(ErrCode_ExceedRetryTimes), "exceed retry times")
+	ErrNoQueryCondition   = status.Error(codes.Code(ErrCode_NoQueryCondition), "no query condition")
+	ErrNotImplemented     = status.Error(codes.Code(ErrCode_NotImplemented), "not implemented")
+	ErrUnknown            = status.Error(codes.Code(ErrCode_Unknown), "unknown error")
+	ErrInternal           = status.Error(codes.Code(ErrCode_Internal), "internal error")
+	ErrNoRequiredParam    = status.Error(codes.Code(ErrCode_NoRequiredParam), "no required parameter")
+	ErrInvalidParam       = status.Error(codes.Code(ErrCode_InvalidParam), "invalid parameter")
+	ErrNoPermission       = status.Error(codes.Code(ErrCode_NoPermission), "no permission")
+	ErrExceedRetryTimes   = status.Error(codes.Code(ErrCode_ExceedRetryTimes), "exceed retry times")
+	ErrUnablePushRabbitmq = status.Error(codes.Code(ErrCode_UnablePushRabbitmq), "unable to push on rabbitmq")
 
 	//api
 	ErrAPIRequestTooMany = status.Error(codes.Code(ErrCode_APIRequestTooMany), "api request too many")
