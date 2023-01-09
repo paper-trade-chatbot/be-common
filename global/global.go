@@ -1,6 +1,6 @@
 package global
 
-import "github.com/paper-trade-chatbot/be-order/config"
+import "github.com/paper-trade-chatbot/be-common/config"
 
 // Status flags for Kubernetes probes. Ideally, these should be protected by
 // mutexes, but since we will most likely access these variables from only a

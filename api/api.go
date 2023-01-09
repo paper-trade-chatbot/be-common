@@ -7,9 +7,9 @@ import (
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 
-	"github.com/paper-trade-chatbot/be-order/api/middleware"
-	"github.com/paper-trade-chatbot/be-order/config"
-	"github.com/paper-trade-chatbot/be-order/global"
+	"github.com/paper-trade-chatbot/be-common/api/middleware"
+	"github.com/paper-trade-chatbot/be-common/config"
+	"github.com/paper-trade-chatbot/be-common/global"
 )
 
 // The global HTTP router instance and root group.

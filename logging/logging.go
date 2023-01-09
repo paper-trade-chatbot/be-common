@@ -10,7 +10,7 @@ import (
 	"cloud.google.com/go/logging"
 	"golang.org/x/net/context"
 
-	"github.com/paper-trade-chatbot/be-order/config"
+	"github.com/paper-trade-chatbot/be-common/config"
 )
 
 // Logger is our logger instance abstraction.

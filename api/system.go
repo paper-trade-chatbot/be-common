@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/paper-trade-chatbot/be-order/config"
-	"github.com/paper-trade-chatbot/be-order/global"
+	"github.com/paper-trade-chatbot/be-common/config"
+	"github.com/paper-trade-chatbot/be-common/global"
 )
 
 func init() {

@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/paper-trade-chatbot/be-order/config"
-	"github.com/paper-trade-chatbot/be-order/logging"
+	"github.com/paper-trade-chatbot/be-common/config"
+	"github.com/paper-trade-chatbot/be-common/logging"
 )
 
 // RedisInstance and the context used to retrieve connections.

@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/paper-trade-chatbot/be-order/api"
-	"github.com/paper-trade-chatbot/be-order/config"
-	"github.com/paper-trade-chatbot/be-order/global"
-	"github.com/paper-trade-chatbot/be-order/logging"
+	"github.com/paper-trade-chatbot/be-common/api"
+	"github.com/paper-trade-chatbot/be-common/config"
+	"github.com/paper-trade-chatbot/be-common/global"
+	"github.com/paper-trade-chatbot/be-common/logging"
 )
 
 // CreateServer creates an HTTP server listening on the specified address.

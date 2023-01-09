@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/paper-trade-chatbot/be-order/global"
+	"github.com/paper-trade-chatbot/be-common/global"
 )
 
 func init() {

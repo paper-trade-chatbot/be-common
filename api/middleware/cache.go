@@ -10,7 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/go-redis/redis/v8"
 
-	"github.com/paper-trade-chatbot/be-order/cache"
+	"github.com/paper-trade-chatbot/be-common/cache"
 )
 
 //go:generate msgp -tests=false

@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/paper-trade-chatbot/be-order/cache"
+	"github.com/paper-trade-chatbot/be-common/cache"
 )
 
 const (

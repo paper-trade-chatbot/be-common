@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/go-redis/redis/v8"
-	"github.com/paper-trade-chatbot/be-order/logging"
+	"github.com/paper-trade-chatbot/be-common/logging"
 )
 
 type RedisCluster struct {

@@ -10,7 +10,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/paper-trade-chatbot/be-order/logging"
+	"github.com/paper-trade-chatbot/be-common/logging"
 )
 
 // blacklist is a list of request URLs that we should ignore from logging.

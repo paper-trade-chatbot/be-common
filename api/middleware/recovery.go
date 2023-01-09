@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/paper-trade-chatbot/be-order/logging"
+	"github.com/paper-trade-chatbot/be-common/logging"
 )
 
 // Recovery is a middleware that recovers from panic then logs the stack trace.
