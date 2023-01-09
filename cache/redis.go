@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-redis/redis/v8"
-	"github.com/go-redis/redismock/v8"
+	"github.com/go-redis/redis/v9"
+	"github.com/go-redis/redismock/v9"
 	"github.com/paper-trade-chatbot/be-common/config"
 	"github.com/paper-trade-chatbot/be-common/logging"
 )
@@ -65,15 +65,19 @@ func initializeRedis(ctx context.Context) {
 			Password:      redisPassword,
 			DB:            redisDB, // use default DB
 			PoolSize:      redisPoolsize,
-			IdleTimeout:   idleTimeout,
+			DialTimeout:   idleTimeout,
+			ReadTimeout:   idleTimeout,
+			WriteTimeout:  idleTimeout,
 		})
 	} else if strings.Contains(redisEndpoint, ":6379") {
 		redisClient = redis.NewClient(&redis.Options{
-			Addr:        redisEndpoint,
-			Password:    redisPassword,
-			DB:          redisDB, // use default DB
-			PoolSize:    redisPoolsize,
-			IdleTimeout: idleTimeout,
+			Addr:         redisEndpoint,
+			Password:     redisPassword,
+			DB:           redisDB, // use default DB
+			PoolSize:     redisPoolsize,
+			DialTimeout:  idleTimeout,
+			ReadTimeout:  idleTimeout,
+			WriteTimeout: idleTimeout,
 		})
 	} else {
 		panic(fmt.Errorf("cannot determine Redis mode"))

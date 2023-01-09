@@ -15,8 +15,6 @@ localrc*
 *.swn
 *.swm
 
-# go:generate-ed sources
-*_gen.go
 
 # local jwt keys
 jwt_dev.key

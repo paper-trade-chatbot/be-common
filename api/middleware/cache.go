@@ -8,7 +8,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/go-redis/redis/v8"
+	"github.com/go-redis/redis/v9"
 
 	"github.com/paper-trade-chatbot/be-common/cache"
 )

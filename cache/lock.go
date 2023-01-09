@@ -3,7 +3,7 @@ package cache
 import (
 	"github.com/go-redsync/redsync/v4"
 	redsyncRedis "github.com/go-redsync/redsync/v4/redis"
-	goredis "github.com/go-redsync/redsync/v4/redis/goredis/v8"
+	goredis "github.com/go-redsync/redsync/v4/redis/goredis/v9"
 )
 
 type RedisSyncPool struct {
